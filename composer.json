@@ -1,0 +1,56 @@
+{
+    "name": "gw2treasures/gw2treasures.com",
+    "description": "GW2Treasures.",
+    "keywords": ["gw2treasures"],
+    "license": "MIT",
+    "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/darthmaim/laravel-translation-manager"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "laravel/framework": "~4.2",
+        "barryvdh/laravel-ide-helper": "~1.11",
+        "doctrine/dbal": "~2.5",
+        "barryvdh/laravel-translation-manager": "dev-readonly",
+        "symfony/translation": "2.6.13 as 2.5.999",
+        "nesbot/carbon": "~1.21",
+        "gw2treasures/gw2api": "~3.5",
+        "gw2treasures/gw2tools": "~1.0"
+    },
+    "autoload": {
+        "classmap": [
+            "app/commands",
+            "app/controllers",
+            "app/models",
+            "app/database/migrations",
+            "app/database/seeds",
+            "app/library",
+            "app/tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "php artisan clear-compiled",
+            "php artisan ide-helper:generate",
+            "php artisan optimize"
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require-dev": {
+        "phpunit/phpunit": "4.2.*"
+    }
+}
